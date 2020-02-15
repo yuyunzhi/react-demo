@@ -10,13 +10,13 @@ import './App.css';
 function App(props) {
     const nRef = useRef(0)  // {current:0}
     return (
-    <div className="App">
-        <p>{nRef.current}</p>
-        <p>
-            <button onClick={()=>nRef.current + 1}>+1</button>
-        </p>
-    </div>
-  );
+        <div className="App">
+            <p>{nRef.current}</p>
+            <p>
+                <button onClick={()=>nRef.current + 1}>+1</button>
+            </p>
+        </div>
+    );
 }
 
 export default App;

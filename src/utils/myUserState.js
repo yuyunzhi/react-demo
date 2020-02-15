@@ -10,7 +10,12 @@ import * as ReactDOM from "react-dom";
  * useState 会读取state[index]
  * index由useState出现的顺序决定
  * setState 会修改state，并触发render更新
- * 注意：不允许在if里写useState
+ * 注意：
+ * 1、不允许在if里写useState
+ * 2、每次setN都会创建新的n,而不是修改n
+ * 3、造一个自动更新页面的api :
+ *      const update = useState(null)[1]
+ *      update(每次传一个不一样的值即可)
  */
 
 let _state = []
