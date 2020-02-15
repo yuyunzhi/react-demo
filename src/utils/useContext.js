@@ -1,6 +1,5 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext,useState} from 'react';
 import './App.css';
-
 
 const xxx = React.createContext(null)
 
@@ -40,8 +39,5 @@ function ChildB() {
         </div>
     )
 }
-
-
-
 
 export default App
