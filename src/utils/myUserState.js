@@ -21,13 +21,13 @@ function App(props) {
     const [n,setN] = myUseState(0)
     console.log('后',n);
     return (
-    <div className="App">
-        <p>{n}</p>
-        <p>
-            <button onClick={()=>setN(n+1)}>+1</button>
-        </p>
-    </div>
-  );
+        <div className="App">
+            <p>{n}</p>
+            <p>
+                <button onClick={()=>setN(n+1)}>+1</button>
+            </p>
+        </div>
+    );
 }
 
 export default App;
