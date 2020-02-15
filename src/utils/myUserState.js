@@ -2,6 +2,17 @@ import React from 'react';
 import './App.css';
 import * as ReactDOM from "react-dom";
 
+
+/**
+ * 总结
+ * 每个函数组件对应一个React节点---FiberNode
+ * 每个节点保存在state --- memorizedState 和index实现用的是链表
+ * useState 会读取state[index]
+ * index由useState出现的顺序决定
+ * setState 会修改state，并触发render更新
+ * 注意：不允许在if里写useState
+ */
+
 let _state = []
 let index = 0
 function myUseState (initialValue){
