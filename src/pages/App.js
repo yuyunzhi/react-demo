@@ -1,53 +1,35 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './App.css';
 
 /**
- * 每次render后都会运行useEffect
+ * 注意useRef 只有一个current，并且赋值后不会更新App
+ * 所以<p>nRef.current</p>是不会变的，如果需要变化，制造一个update API
+ *      const update = useState(null)[1]
+ *      update(每次传一个不一样的值即可)
  *
- * 用途：
- * componentDidMount使用，[]作第二个参数
- * componentDidUpdate使用，可指定依赖
- * componentWillUnmount使用,通过return
- * 以上三种用途同时存在
- *
- * 多个useEffect按照顺序依次执行
+ *  当页面有useState执行了，就会渲染更新useRef的值
  */
-
-function App() {
-
-    const [n,setN] = useState(0)
-    const onClick = ()=>{
-        setN(i=>i+1)
-    }
+function App(props) {
+    const nRef = useRef(0)  // {current:0}
+    const  [n,setN] = useState(0)
     useEffect(()=>{
-        console.log("只在第一次渲染后执行这句话")
-    },[])
-
-    useEffect(()=>{
-        console.log("任何一个状态变化，第一、二、三……次渲染后执行这句话")
+        console.log('nRef:',nRef);
     })
-
     useEffect(()=>{
-        console.log("第一次，及n变化了才执行这句话")
-    },[n])
-
-    useEffect(()=>{
-        let timer = setInterval(()=>{
-            console.log("hi")
-
-        },1000)
-        return ()=>{
-            console.log('当页面离开的时候执行这段代码');
-            clearInterval(timer)
-            timer = null
-        }
-    },[])
+        console.log('n:',n);
+    })
     return (
-        <div>
-            n:{n}
-            <button onClick={onClick}>+1</button>
+        <div className="App">
+            <p>{nRef.current}</p>
+            <p>
+                <button onClick={()=>nRef.current=nRef.current + 1}>+1</button>
+            </p>
+            <p>{n}</p>
+            <p>
+                <button onClick={()=>setN(n+1)}>+1</button>
+            </p>
         </div>
     );
 }
 
-export default App
+export default App;
