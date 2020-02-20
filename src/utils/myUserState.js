@@ -16,6 +16,9 @@ import * as ReactDOM from "react-dom";
  * 3、造一个自动更新页面的api :
  *      const update = useState(null)[1]
  *      update(每次传一个不一样的值即可)
+ *
+ *
+ * useState 不能更新部分数据，只能更新全部，且不会帮我们合并对象
  */
 
 let _state = []
