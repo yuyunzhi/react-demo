@@ -138,4 +138,3 @@ function ajax(path) {
         }, 2000);
     });
 }
-
