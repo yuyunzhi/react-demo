@@ -1,5 +1,8 @@
 import React, {createContext, useContext, useEffect, useReducer} from "react";
 
+/**
+ *使用useReducer useContext 代替redux
+ */
 const store = {
     user: null,
     books: null,
@@ -33,8 +36,7 @@ function reducer(state, action) {
 const Context = createContext(null)
 
 function App() {
-    const [state, dispatch] = useReducer(reducer, store);
-
+    const {state, dispatch}= useReducer(reducer, store);
     const api = { state, dispatch };
     return (
         <Context.Provider value={api}>
