@@ -20,7 +20,7 @@ function App() {
 const Button3 = forwardRef((props,ref)=>{
     console.log("ref",ref);
     return (
-            <button className="red" ref={ref} {...props}/>
+        <button className="red" ref={ref} {...props}/>
     )
 })
 export default App
