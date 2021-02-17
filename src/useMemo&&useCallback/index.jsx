@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo} from "react";
 
-// useMemo 和 useCallback作用是一样,只是写法不一样
+// useMemo&&useCallback 和 useCallback作用是一样,只是写法不一样
 
 /**
  * React.memo的作用是如果组件的props不变，那么该组件不会渲染
@@ -11,7 +11,7 @@ import React, {useCallback, useMemo} from "react";
  *
  * 解决方案：
  *
- * 使用 useMemo 第一个参数是()=>value
+ * 使用 useMemo&&useCallback 第一个参数是()=>value
  * 第二个参数是依赖[m,n]，当m,n变化的时候才会重新执行useMemo缓存的value
  * 如果依赖不变，就重用之前的value
  * 相当于vue 的 computed
@@ -34,7 +34,7 @@ function App() {
         setM(m + 1);
     };
 
-    // const onClickChild = useMemo(() => {
+    // const onClickChild = useMemo&&useCallback(() => {
     //     const fn = div => {
     //         console.log("on click child, m: " + m);
     //         console.log(div);
@@ -42,6 +42,8 @@ function App() {
     //     return fn;
     // }, []); // 这里呃 [m] 改成 [n] 就会打印出旧的 m
 
+
+  // 函数使用useCallback ,函数内部要使用变量，要注意要绑定[变量]，不然会取不到最新值，
     const onClickChild = useCallback(div => {
       console.log("on click child, m: " + m);
       console.log(div);

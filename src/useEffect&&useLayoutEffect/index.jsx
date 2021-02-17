@@ -14,7 +14,7 @@ import React, {useEffect, useState} from 'react';
  * 注意：useLayoutEffect的区别在于
  * useLayoutEffect在渲染页面 前执行 0->1不闪烁，
  * useEffect在渲染页面后 执行  0->1用户会看到0，然后变成1
- * 由于前端应该尽早给用户看到页面，所以建议使用 useEffect
+ * 由于前端应该尽早给用户看到页面，所以建议使用 useEffect&&useLayoutEffect
  */
 
 function App() {

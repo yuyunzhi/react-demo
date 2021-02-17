@@ -10,7 +10,7 @@ import useList from '../hooks/useList'
  *
  * 解决方案：
  *
- * 使用 useMemo 第一个参数是()=>value
+ * 使用 useMemo&&useCallback 第一个参数是()=>value
  * 第二个参数是依赖[m,n]，当m,n变化的时候才会重新执行useMemo缓存的value
  * 如果依赖不变，就重用之前的value
  * 相当于vue 的 computed
