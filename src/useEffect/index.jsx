@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
 
 /**
  * 每次render后都会运行useEffect
@@ -21,15 +20,17 @@ import './App.css';
 function App() {
 
     const [n,setN] = useState(0)
+
     const onClick = ()=>{
         setN(i=>i+1)
     }
+
     useEffect(()=>{
         console.log("只在第一次渲染后执行这句话")
     },[])
 
     useEffect(()=>{
-        console.log("任何一个状态变化，第一、二、三……次渲染后执行这句话")
+        console.log("任何一个state状态变化，第一、二、三……次渲染后执行这句话")
     })
 
     useEffect(()=>{
@@ -38,15 +39,15 @@ function App() {
 
     useEffect(()=>{
         let timer = setInterval(()=>{
-            console.log("hi")
-
+            console.log('setInterval',n)
         },1000)
+
         return ()=>{
             console.log('当页面离开的时候执行这段代码');
             clearInterval(timer)
             timer = null
         }
-    },[])
+    },[n])
     return (
         <div>
             n:{n}
