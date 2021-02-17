@@ -11,10 +11,8 @@ function App() {
     const buttonRef = useRef(null)
     const divRef = useRef(null)
     useEffect(()=>{
-      setTimeout(()=>{
         console.log('divRef',divRef);
         console.log('buttonRef',buttonRef);
-      },1000)
 
     },[])
     return (
