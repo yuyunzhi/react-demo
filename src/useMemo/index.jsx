@@ -1,5 +1,6 @@
-import React, { useMemo } from "react";
+import React, {useCallback, useMemo} from "react";
 
+// useMemo 和 useCallback作用是一样,只是写法不一样
 
 /**
  * React.memo的作用是如果组件的props不变，那么该组件不会渲染
@@ -24,26 +25,35 @@ import React, { useMemo } from "react";
 function App() {
     const [n, setN] = React.useState(0);
     const [m, setM] = React.useState(0);
+
     const onClick = () => {
         setN(n + 1);
     };
+
     const onClick2 = () => {
         setM(m + 1);
     };
-    const onClickChild = useMemo(() => {
-        const fn = div => {
-            console.log("on click child, m: " + m);
-            console.log(div);
-        };
-        return fn;
-    }, [m]); // 这里呃 [m] 改成 [n] 就会打印出旧的 m
+
+    // const onClickChild = useMemo(() => {
+    //     const fn = div => {
+    //         console.log("on click child, m: " + m);
+    //         console.log(div);
+    //     };
+    //     return fn;
+    // }, []); // 这里呃 [m] 改成 [n] 就会打印出旧的 m
+
+    const onClickChild = useCallback(div => {
+      console.log("on click child, m: " + m);
+      console.log(div);
+    },[m])
+
     return (
         <div className="App">
             <div>
                 <button onClick={onClick}>update n {n}</button>
                 <button onClick={onClick2}>update m {m}</button>
             </div>
-            <Child2 data={m} onClick={onClickChild} />
+            <Child2 m={m} onClick={onClickChild} />
         </div>
     );
 }
@@ -51,9 +61,10 @@ function App() {
 function Child(props) {
     console.log("child 执行了");
     console.log("假设这里有大量代码");
-    return <div onClick={e => props.onClick(e.target)}>child: {props.data}</div>;
+    return <div onClick={e => props.onClick(e.target)}>child: {props.m}</div>;
 }
 
+// 使用React.memo包裹组件，意味着如果组件的props没有变化，那么组件不会重新渲染
 const Child2 = React.memo(Child);
 
 export default App
