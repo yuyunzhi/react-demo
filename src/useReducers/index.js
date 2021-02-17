@@ -4,7 +4,6 @@ import Movies from "./components/Movies";
 import Users from "./components/Users";
 import {reducer, store} from './store/index'
 
-
 export const Context = createContext(null)
 
 function App() {
