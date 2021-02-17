@@ -39,7 +39,6 @@ const render = ()=> {
     ReactDOM.render(<App />,document.getElementById('root'))
 }
 
-
 function App(props) {
     const [n,setN] = myUseState(0)
     const [m,setM] = myUseState(0)
