@@ -1,4 +1,4 @@
-import React, {forwardRef, useRef} from "react";
+import React, {forwardRef, useEffect, useRef} from "react";
 
 
 /**
@@ -9,17 +9,25 @@ import React, {forwardRef, useRef} from "react";
 
 function App() {
     const buttonRef = useRef(null)
-    console.log('buttonRef',buttonRef);
+    const divRef = useRef(null)
+    useEffect(()=>{
+      setTimeout(()=>{
+        console.log('divRef',divRef);
+        console.log('buttonRef',buttonRef);
+      },1000)
+
+    },[])
     return (
         <div className="App">
-            <Button3 ref={buttonRef} >按钮</Button3>
+            <div ref={divRef}>6666</div>
+            <Button3 ref={buttonRef} x={123} >按钮</Button3>
         </div>
     )
 }
 
 const Button3 = forwardRef((props,ref)=>{
-    console.log("ref",ref);
-    return (
+  console.log('ref',ref);
+  return (
         <button className="red" ref={ref} {...props}/>
     )
 })
