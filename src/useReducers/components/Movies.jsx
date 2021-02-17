@@ -1,8 +1,8 @@
-import React, {useContext, useEffect} from "react";
+import React from "react";
 import useAsync from '../hooks/useAsync'
 
 function Movies() {
-  const {state,dispatch} = useAsync('/movies',(response)=>{
+  const {state} = useAsync('/movies', (response) => {
     return {type: "setMovies", movies: response}
   })
   return (

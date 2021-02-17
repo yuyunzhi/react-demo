@@ -7,7 +7,7 @@ import userReducer from "./userReducer";
  */
 
 // 初始化store
-export const store = {
+export const initialStore = {
   user: null,
   books: null,
   movies: null

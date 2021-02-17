@@ -1,12 +1,12 @@
 import React, {useContext,useState} from 'react';
 import './App.css';
 
-const xxx = React.createContext(null)
+const Context = React.createContext(null)
 
 function App() {
     const [theme,setTheme] = useState('red')
     return (
-        <xxx.Provider value={{theme,setTheme,a:123}}>
+        <Context.Provider value={{theme,setTheme,a:123}}>
             <div className={`App ${theme}`}>
                 <p>{theme}</p>
                 <div>
@@ -16,12 +16,12 @@ function App() {
                     <ChildB></ChildB>
                 </div>
             </div>
-        </xxx.Provider>
+        </Context.Provider>
     );
 }
 
 function ChildA() {
-    const arg= useContext(xxx)
+    const arg = useContext(Context)
     console.log('arg',arg);
     const {setTheme} = arg
     return (

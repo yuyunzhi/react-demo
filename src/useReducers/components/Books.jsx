@@ -1,8 +1,8 @@
-import React, {useContext, useEffect} from "react";
+import React from "react";
 import useAsync from '../hooks/useAsync'
 
 function Books() {
-  const {state,dispatch} = useAsync('/books',(response)=>{
+  const {state} = useAsync('/books', (response) => {
     return {type: "setBooks", books: response}
   })
 

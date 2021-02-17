@@ -30,7 +30,6 @@ function myUseState (initialValue){
         _state[currentIndex] = newState
         render()
     }
-    console.log('_state',_state)
     index++
     return [_state[currentIndex],setState]
 }
@@ -38,7 +37,6 @@ function myUseState (initialValue){
 const render = ()=> {
     index = 0 //每次走完重置为0
     ReactDOM.render(<App />,document.getElementById('root'))
-
 }
 
 

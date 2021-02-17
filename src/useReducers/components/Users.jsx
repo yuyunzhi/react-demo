@@ -3,7 +3,7 @@ import useAsync from '../hooks/useAsync'
 
 
 function Users() {
-  const {state,dispatch} = useAsync('/user',(response)=>{
+  const {state} = useAsync('/user', (response) => {
     return {type: "setUser", user: response}
   })
 

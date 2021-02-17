@@ -1,4 +1,4 @@
-import { useContext, useEffect} from "react";
+import {useContext, useEffect} from "react";
 import ajax from "../../utils/ajax";
 import {Context} from "../index";
 
