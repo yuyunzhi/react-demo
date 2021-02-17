@@ -5,7 +5,8 @@ const useList = () =>{
     const [list,setList] = useState(null)
     useEffect(()=>{
         ajax("/list").then(list=>{
-            setList(list)
+          console.log(list);
+          setList(list)
         })
     },[])
     return {

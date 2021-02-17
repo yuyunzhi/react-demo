@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import ReactDOM from "react-dom";
 
 const initFormData = {
     name: "",
