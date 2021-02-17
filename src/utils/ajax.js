@@ -6,7 +6,7 @@ export default function ajax(path) {
         resolve({
           id: 1,
           name: "余咖咖"
-        });
+      })
       } else if (path === "/books") {
         resolve([
           {
